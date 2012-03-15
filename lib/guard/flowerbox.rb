@@ -15,6 +15,12 @@ module Guard
       UI.info "Guard::Flowerbox running in #{@options[:dir]}"
     end
 
+    def stop
+      UI.info "Stopping Guard::Flowerbox..."
+
+      ::Flowerbox.cleanup!
+    end
+
     def run_all
       UI.info "Guard::Flowerbox running all files..."
       ::Flowerbox.run(@options[:dir], @options)
