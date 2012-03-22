@@ -27,6 +27,8 @@ module Guard
     end
 
     def run_on_change(files = [])
+      files = files.dup.uniq
+
       UI.info "Guard::Flowerbox running the following files: #{files.join(', ')}"
 
       if ::Flowerbox.run(@options[:dir], @options.dup.merge(:files => files)) == 0
